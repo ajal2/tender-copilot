@@ -1,0 +1,7 @@
+# Make GitHub's language bar read "Python", not "Markdown/JSON".
+# The engine is Python; docs and fixtures shouldn't dominate the repo card.
+docs/**          linguist-documentation
+examples/**      linguist-documentation
+*.md             linguist-documentation
+fixtures/**      linguist-detectable=false
+profiles/**      linguist-detectable=false

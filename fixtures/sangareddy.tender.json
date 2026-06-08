@@ -1,0 +1,44 @@
+{
+  "id": "704474-E1-168-MCS-2026-27",
+  "title": "50 TPD C&D Waste Processing Plant + 10-yr O&M — Sangareddy Cluster (11 ULBs)",
+  "authority": "Sangareddy Municipality (MCS), Telangana",
+  "estimated_cost": 30000000,
+  "emd": 300000,
+  "doc_fee": 11800,
+  "gate": 70,
+  "notes": [
+    "Online-only submission via tender.telangana.gov.in; price bid (Annexure 6) online, Envelope-3.",
+    "EMD figure governs over the RFP's words typo ('Rs 3,00,000' vs 'One Lakh Seventy-Four Thousand')."
+  ],
+  "minimums": [
+    ["avg_turnover_cr", 5, "Avg annual turnover >= Rs 5 Cr (5-yr, CA-certified)"],
+    ["cumulative_capacity_tpd", 50, "C&D processing capacity >= 50 TPD (route i(b), cumulative)"]
+  ],
+  "requirements": [
+    {"id": "anx1",  "description": "Annexure 1 — Letter of Proposal & Interest", "kind": "document", "source": "checklist", "doc_id": "anx1"},
+    {"id": "anx2",  "description": "Annexure 2 — General Information of Bidder",  "kind": "document", "source": "checklist", "doc_id": "anx2"},
+    {"id": "anx3",  "description": "Annexure 3 — Technical Criteria of Bidder",   "kind": "document", "source": "checklist", "doc_id": "anx3"},
+    {"id": "anx4",  "description": "Annexure 4 — Financial Capability (CA-certified, UDIN)", "kind": "document", "source": "checklist", "doc_id": "anx4"},
+    {"id": "anx5",  "description": "Annexure 5 — Manpower Deployment Undertaking", "kind": "document", "source": "checklist", "doc_id": "anx5"},
+    {"id": "anx7",  "description": "Annexure 7 — Power of Attorney + Board Resolution", "kind": "document", "source": "checklist", "doc_id": "poa"},
+    {"id": "anx8",  "description": "Annexure 8 — Affidavit: not blacklisted/debarred", "kind": "document", "source": "checklist", "doc_id": "anx8"},
+    {"id": "anx10", "description": "Annexure 10 — Code of Integrity & No Conflict", "kind": "document", "source": "checklist", "doc_id": "anx10"},
+    {"id": "anx11", "description": "Annexure 11 — Declaration regarding Qualification", "kind": "document", "source": "checklist", "doc_id": "anx11"},
+    {"id": "pan_gst", "description": "PAN & GST registration certificates", "kind": "document", "source": "checklist", "doc_id": "pan_gst"},
+    {"id": "emd_proof", "description": "EMD payment proof (online)", "kind": "emd", "source": "checklist", "doc_id": "emd_proof"},
+    {"id": "fee_proof", "description": "Tender document-fee proof", "kind": "fee", "source": "checklist", "doc_id": "fee_proof"},
+    {"id": "audited_fin", "description": "Audited financials, last 5 FY", "kind": "document", "source": "checklist", "doc_id": "audited_financials"},
+    {"id": "experience", "description": "Work completion certificates (signed >= Executive Engineer)", "kind": "document", "source": "checklist", "doc_id": "experience_certs"},
+    {"id": "jv_mou", "description": "Joint-venture MoU (notarised)", "kind": "document", "source": "prose", "doc_id": "jv_mou"},
+    {"id": "epf_challan", "description": "EPF account + copy of recent PAID PF challan", "kind": "eligibility", "source": "prose", "doc_id": "epf_challan"},
+    {"id": "net_worth", "description": "Positive net worth in last audited FY", "kind": "eligibility", "source": "prose", "doc_id": "audited_financials", "confidence": 0.65}
+  ],
+  "scoring": [
+    {"id": "turnover", "name": "Annual turnover (Rs Cr)", "max_marks": 30, "metric": "avg_turnover_cr",
+     "bands": [[5, 10, 15], [10, 15, 25], [15, 100000, 30]]},
+    {"id": "capacity", "name": "C&D technical capacity (TPD)", "max_marks": 45, "metric": "cumulative_capacity_tpd",
+     "bands": [[50, 100, 15], [100, 150, 30], [150, 100000, 45]]},
+    {"id": "tie_ups", "name": "Tie-ups / MoUs", "max_marks": 5, "metric": "tie_ups", "fixed": 5},
+    {"id": "methodology", "name": "Approach & methodology (presentation)", "max_marks": 20, "metric": "methodology", "fixed": 20}
+  ]
+}

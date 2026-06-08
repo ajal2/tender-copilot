@@ -1,0 +1,24 @@
+{
+  "_note": "What was actually assembled into the 10 upload slots. Note: epf_challan is held by the company (see profile) but was NOT placed in any slot — that gap is the point.",
+  "slots": {
+    "Slot 1 - Entity & Consortium": ["compliance", "scoring", "coi", "llp_agreement", "udyam", "lochab_deed", "jv_mou"],
+    "Slot 2 - GST & PAN": ["pan_gst"],
+    "Slot 3 - Bid Submission Letter": ["anx1"],
+    "Slot 4 - Power of Attorney": ["poa"],
+    "Slot 5 - Technical & Methodology": ["anx3", "anx5", "methodology", "tie_ups"],
+    "Slot 6 - Cost Estimate": ["cost_estimate"],
+    "Slot 7 - Bidder Details": ["anx2", "anx8", "anx10", "anx11"],
+    "Slot 8 - EMD & Fee": ["emd_proof", "fee_proof"],
+    "Slot 9 - Experience": ["experience_certs"],
+    "Slot 10 - Turnover": ["anx4", "audited_financials"]
+  },
+  "claims": [
+    {
+      "text": "Lead Member holds EPF & ESIC registration; recent paid PF challan enclosed.",
+      "asserts_doc": "epf_challan",
+      "points_to_slot": "Slot 2 - GST & PAN"
+    }
+  ],
+  "emd_paid": 300000,
+  "fee_paid": 2000
+}

@@ -1,0 +1,16 @@
+{
+  "name": "JBSS LLP (Lead) + M/s Lochab Stone — Joint Venture",
+  "is_jv": true,
+  "_note": "Synthetic, public-safe. Capabilities only — no PANs, signatures, or financial statements live in this repo.",
+  "metrics": {
+    "avg_turnover_cr": 11.33,
+    "cumulative_capacity_tpd": 100
+  },
+  "registrations": ["PAN", "GST", "EPFO", "ESIC", "LLPIN", "UDYAM"],
+  "documents_available": [
+    "anx1", "anx2", "anx3", "anx4", "anx5", "anx8", "anx10", "anx11",
+    "poa", "pan_gst", "emd_proof", "fee_proof", "audited_financials",
+    "experience_certs", "jv_mou", "epf_challan",
+    "tie_ups", "methodology"
+  ]
+}
