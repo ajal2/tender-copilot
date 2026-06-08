@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![Dependencies](https://img.shields.io/badge/dependencies-zero-success)
 ![License](https://img.shields.io/badge/license-MIT-green)
-[![CI](https://github.com/your-username/tender-copilot/actions/workflows/ci.yml/badge.svg)](https://github.com/your-username/tender-copilot/actions/workflows/ci.yml)
+[![CI](https://github.com/ajal2/tender-copilot/actions/workflows/ci.yml/badge.svg)](https://github.com/ajal2/tender-copilot/actions/workflows/ci.yml)
 
 > Indian government RFPs are 100-page documents where a single buried clause
 > disqualifies you. **tender-copilot reads one and returns: bid or skip, your
