@@ -1,4 +1,4 @@
-"""tender-copilot — read an adversarial government RFP, return a go/no-go,
+"""tender-copilot: read an adversarial government RFP, return a go/no-go,
 a score against the qualification gate, and the exact clauses you're about to
 be rejected on.
 

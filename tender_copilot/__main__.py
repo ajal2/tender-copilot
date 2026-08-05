@@ -1,6 +1,6 @@
 """CLI:  python -m tender_copilot [tender.json profile.json submission.json]
 
-With no args it runs the bundled Sangareddy fixture — so a reviewer can clone
+With no args it runs the bundled Sangareddy fixture, so a reviewer can clone
 and see the hero output in one command, zero install.
 """
 

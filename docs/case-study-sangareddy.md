@@ -30,22 +30,23 @@ Structuring the RFP into the schema and running evaluate + audit returned:
   the 10 to 15 Cr band) + capacity 30 (cumulative 100 TPD) + tie-up 5 +
   methodology 20.
 - **A reject-risk report** that caught, before the deadline:
-  - a **self-contradiction**: the compliance letter claimed the PF challan was
-    enclosed and pointed to Slot 2, where it wasn't;
-  - a **buried-prose disqualifier**: the EPF paid-challan requirement, on no
-    checklist;
-  - a **fee ambiguity**: payment proofs (~₹2,000) not reconciling with the RFP's
-    stated ₹11,800 document fee;
-  - a **low-confidence line** (positive net worth) flagged for human review.
+  - the compliance letter claimed the PF challan was enclosed and pointed to
+    Slot 2, where it wasn't;
+  - the EPF paid-challan requirement, which appears on no checklist, only in
+    eligibility prose;
+  - payment proofs (~₹2,000) that didn't reconcile with the RFP's stated
+    ₹11,800 document fee;
+  - one low-confidence extraction (positive net worth), flagged for a human to
+    verify.
 
 See the verbatim output in [../examples/sangareddy_risk_report.md](../examples/sangareddy_risk_report.md).
 
 ## Outcome
 
 The bid was assembled, audited, and **submitted online before the 2 PM
-deadline**. Technical opening and L1 are pending. **This is a validated process,
-not a declared win.** The value demonstrated is catching defects that a manual
-pass missed and protecting a ₹3,00,000 EMD from a technical-rejection risk.
+deadline**. Technical opening and L1 are pending, so no award is claimed here.
+The value demonstrated is catching defects that a manual pass missed and
+protecting a ₹3,00,000 EMD from a technical-rejection risk.
 
 ## Track record (separate from this system)
 

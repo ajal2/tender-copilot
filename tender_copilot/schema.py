@@ -4,7 +4,7 @@ A tender is modelled as a set of *requirements* a bidder must satisfy, a
 *scoring rubric* that gates progression, and the commercial facts (EMD, fee,
 deadline). The interesting field is `source`: where in the RFP a requirement
 actually appears. Government RFPs hide hard disqualifiers in prose, off the
-official checklist — and that distinction drives how we rank risk.
+official checklist, and that distinction drives how we rank risk.
 
 Pure stdlib on purpose: the repo must run anywhere with `python` and no install.
 """
@@ -98,7 +98,7 @@ class Claim:
     """A statement the bid makes about itself (e.g. in a compliance letter).
 
     If a claim asserts a document is enclosed and it isn't, that is a
-    self-inflicted contradiction — the highest-value thing this engine finds.
+    self-inflicted contradiction, the highest-value thing this engine finds.
     """
     text: str
     asserts_doc: str

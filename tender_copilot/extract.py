@@ -2,7 +2,7 @@
 
 Honest boundary: turning a 100-page scanned RFP into the structured `Tender`
 above is the hard, unreliable part. We do NOT pretend it is solved. The pipeline
-treats extraction as a human-reviewed stage — every field carries a confidence,
+treats extraction as a human-reviewed stage: every field carries a confidence,
 and anything below the floor is surfaced, never silently trusted. The JSON
 fixtures in `fixtures/` are the *reviewed* output of that stage.
 """

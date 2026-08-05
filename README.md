@@ -10,9 +10,9 @@
 > score against the qualification gate, and the exact clauses you're about to be
 > rejected on.** Validated on a live ₹3 Cr bid.
 
-It is **not** a document generator. The PDFs are the boring byproduct. The
-product is the *decision*, plus the risk model that catches what a tired human
-misses.
+Plenty of tender tools generate documents. Here the PDFs are the boring
+byproduct; the product is the decision, plus the risk model that catches what a
+tired human misses.
 
 ---
 
@@ -48,17 +48,17 @@ python -m tender_copilot          # prints the report above. no deps, no keys.
 
 ## Why this is hard (and not just templating)
 
-- **The RFP is adversarial.** 100+ pages, inconsistent formatting per department,
+- The RFP works against you: 100+ pages, formatting that changes by department,
   obligations scattered across prose, tables, and annex indices.
-- **Disqualifiers hide in prose.** The clause that sinks you is rarely on the
-  checklist. The model ranks every requirement by *where it appears* (checklist
-  vs. buried prose), because that changes the real risk.
-- **Cross-document consistency.** The most catchable defect isn't a missing
-  file. It's the bid *claiming* a file it didn't attach. The engine checks
-  claims against what was actually assembled.
-- **Wrong answers cost money.** A bad eligibility call forfeits the EMD. So the
-  extractor carries per-field **confidence** and **fails loud**: anything it's
-  unsure of goes to a human queue, never a silent guess.
+- The clause that sinks you is rarely on the checklist, which is why every
+  requirement gets ranked by where it appears (checklist vs. buried prose).
+  That placement changes the real risk.
+- The most catchable defect isn't even a missing file. It's the bid *claiming*
+  a file it didn't attach, so the engine checks every claim against what was
+  actually assembled.
+- Wrong answers cost money here. A bad eligibility call forfeits the EMD, so
+  the extractor carries per-field confidence and anything it's unsure of goes
+  to a human queue instead of a guess.
 
 ---
 
@@ -95,7 +95,7 @@ Run end-to-end against the **Sangareddy 50 TPD C&D tender** (Tender ID 704474),
 a live ₹3 Cr municipal contract bid as a JBSS LLP + Lochab Stone joint venture.
 The engine reproduced the qualification score (80/100, clearing the 70 gate) and
 caught the compliance defects above before the deadline.
-*(Bid submitted, award pending. This repo claims a validated **process**, not a win.)*
+*(Bid submitted; the award is still pending.)*
 The story is in **[docs/case-study-sangareddy.md](docs/case-study-sangareddy.md)**
 and the economics in **[docs/business-case.md](docs/business-case.md)**.
 

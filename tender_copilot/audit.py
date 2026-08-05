@@ -1,4 +1,4 @@
-"""Reject-risk audit — the centerpiece.
+"""Reject-risk audit: the centerpiece.
 
 Given an extracted tender, the bidder profile, and what was actually assembled,
 return a ranked list of the ways this bid gets rejected, plus a go/no-go verdict.
@@ -8,7 +8,7 @@ The findings that matter most, in order of how often they sink real bids:
   2. A *self-contradiction*: the bid claims a document is enclosed that isn't.
   3. Falling short of the technical-score gate.
   4. EMD / fee shortfalls or ambiguities.
-Anything the extractor was unsure about is surfaced for a human — never guessed.
+Anything the extractor was unsure about goes to a human for review.
 """
 
 from __future__ import annotations

@@ -1,4 +1,4 @@
-"""Render a RiskReport as a terminal/markdown block — the hero output."""
+"""Render a RiskReport as a terminal/markdown block (the hero output)."""
 
 from __future__ import annotations
 

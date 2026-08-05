@@ -1,7 +1,7 @@
 """Scoring engine: company profile + RFP rubric -> marks, with gap reasons.
 
 Deliberately boring and deterministic. The score must be explainable line by
-line — an evaluator (and an interviewer) will ask "why 25 and not 30?".
+line, because an evaluator (and an interviewer) will ask "why 25 and not 30?".
 """
 
 from __future__ import annotations
