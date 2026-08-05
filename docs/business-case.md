@@ -9,36 +9,38 @@ Earnest Money Deposit. The work is manual, slow, and unforgiving: one missed
 clause is an outright rejection, and the EMD plus the effort are gone.
 
 Most small firms cope by paying tender consultants per bid, or by burning senior
-time. Both scale badly — so firms bid on *fewer* tenders than they're eligible
+time. Both scale badly, so firms bid on *fewer* tenders than they're eligible
 for, and still get knocked out on technicalities.
 
 ## Where the value is (and isn't)
 
-tender-copilot does **not** claim to make you win a tender — you win on price
+tender-copilot does not claim to make you win a tender. You win on price
 (L1) and eligibility. It moves two levers that a small team actually controls:
 
-1. **Throughput.** Bid/no-bid triage drops from a day of reading to minutes, so a
+1. **Throughput.** Once an RFP is structured into the schema (today a
+   human-reviewed pass), the triage, the what-if JV structuring, and the
+   reject-risk audit take minutes instead of a fresh manual read each time, so a
    two-person team can pursue the tenders they're eligible for instead of
    cherry-picking three.
 2. **Rejection-avoidance.** The reject-risk audit catches the technical defects
-   that forfeit an EMD and a month of work — buried-prose requirements, missing
+   that forfeit an EMD and a month of work: buried-prose requirements, missing
    proofs, and the bid contradicting itself.
 
 ## Illustrative unit economics
 
-*Plug your real numbers — these are a model, not a claim.*
+*Plug in your real numbers. These are a model, not a claim.*
 
 | Item | Manual | With copilot |
 |---|---|---|
-| RFP read + eligibility triage | ~0.5–1 day | minutes |
-| Consultant / senior time per bid | ₹25k–₹1L | mostly avoided |
+| RFP read + eligibility triage | 0.5 to 1 day | minutes, once structured |
+| Consultant / senior time per bid | ₹25k to ₹1L | mostly avoided |
 | Tenders pursued per quarter (2-person team) | ~3 | 3× more, same headcount |
 | Technical-rejection rate | a real, recurring loss | caught pre-submission |
 | EMD at risk per bid (Sangareddy) | ₹3,00,000 | protected by the audit |
 
 The system pays for itself by **preventing a single avoidable rejection**: one
 forfeited ₹3,00,000 EMD, or one wasted ₹3 Cr-scale bid effort, dwarfs its cost.
-Everything above that — the extra tenders pursued — is upside.
+Everything above that, the extra tenders pursued, is upside.
 
 ## Market
 

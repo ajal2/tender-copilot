@@ -19,12 +19,12 @@ python -m unittest evals.test_audit -v      # from repo root
 
 | Tender | Value | Labelled | Defects engine caught that a checklist pass missed |
 |---|---|---|---|
-| Sangareddy 50 TPD C&D | ₹3.0 Cr | ✅ | self-contradiction · buried EPF clause · fee gap |
-| Mathura 50 TPD C&D | — | ☐ planned | — |
-| Bidar 50 TPD C&D | — | ☐ planned | — |
+| Sangareddy 50 TPD C&D | ₹3.0 Cr | yes | self-contradiction · buried EPF clause · fee gap |
+| Mathura 50 TPD C&D | n/a | planned | n/a |
+| Bidar 50 TPD C&D | n/a | planned | n/a |
 
 **Honest status:** N = 1 fully labelled today. The harness is built to add past
 JBSS tenders as labelled fixtures; each new one measures both reject-risk recall
 and extraction precision/recall against a hand-labelled gold schema. No accuracy
-number is claimed beyond what's in the table — extraction over messy scanned PDFs
+number is claimed beyond what's in the table. Extraction over messy scanned PDFs
 is the open research surface, and inflating it would defeat the point.

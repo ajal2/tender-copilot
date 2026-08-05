@@ -11,8 +11,8 @@
 > rejected on.** Validated on a live ₹3 Cr bid.
 
 It is **not** a document generator. The PDFs are the boring byproduct. The
-product is the *decision*, plus the risk model that catches what a tired human,
-or a one-shot LLM, misses.
+product is the *decision*, plus the risk model that catches what a tired human
+misses.
 
 ---
 
@@ -40,7 +40,7 @@ Full output, with the score breakdown and eligibility gates, is in **[examples/s
 Every one of those four was a real defect on the actual submitted bid.
 
 ```bash
-git clone <repo> && cd tender-copilot
+git clone https://github.com/ajal2/tender-copilot.git && cd tender-copilot
 python -m tender_copilot          # prints the report above. no deps, no keys.
 ```
 
@@ -105,7 +105,7 @@ and the economics in **[docs/business-case.md](docs/business-case.md)**.
 
 ```
 tender_copilot/      the engine
-  schema.py            data model (the IP: requirements ranked by source)
+  schema.py            data model (the core idea: requirements ranked by where they appear)
   evaluate.py          rubric → score + gap reasons
   audit.py        ★    reject-risk + cross-doc contradiction + fail-loud
   extract.py           JSON loaders; PDF→schema is the documented research stage
