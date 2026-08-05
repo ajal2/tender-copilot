@@ -11,7 +11,7 @@
 > rejected on.** Validated on a live ₹3 Cr bid.
 
 It is **not** a document generator. The PDFs are the boring byproduct. The
-product is the *decision* — and the risk model that catches what a tired human,
+product is the *decision*, plus the risk model that catches what a tired human,
 or a one-shot LLM, misses.
 
 ---
@@ -36,7 +36,7 @@ REJECT RISKS  (●HIGH ◐MEDIUM ○LOW)
   ○ [LOW]    Low-confidence extraction: positive net worth — needs a human
 ```
 
-Full output, with the score breakdown and eligibility gates → **[examples/sangareddy_risk_report.md](examples/sangareddy_risk_report.md)**.
+Full output, with the score breakdown and eligibility gates, is in **[examples/sangareddy_risk_report.md](examples/sangareddy_risk_report.md)**.
 Every one of those four was a real defect on the actual submitted bid.
 
 ```bash
@@ -53,11 +53,11 @@ python -m tender_copilot          # prints the report above. no deps, no keys.
 - **Disqualifiers hide in prose.** The clause that sinks you is rarely on the
   checklist. The model ranks every requirement by *where it appears* (checklist
   vs. buried prose), because that changes the real risk.
-- **Cross-document consistency.** The most catchable defect isn't a missing file
-  — it's the bid *claiming* a file it didn't attach. The engine checks claims
-  against what was actually assembled.
+- **Cross-document consistency.** The most catchable defect isn't a missing
+  file. It's the bid *claiming* a file it didn't attach. The engine checks
+  claims against what was actually assembled.
 - **Wrong answers cost money.** A bad eligibility call forfeits the EMD. So the
-  extractor carries per-field **confidence** and **fails loud** — anything it's
+  extractor carries per-field **confidence** and **fails loud**: anything it's
   unsure of goes to a human queue, never a silent guess.
 
 ---
@@ -84,8 +84,8 @@ python -m tender_copilot          # prints the report above. no deps, no keys.
 ```
 
 One configurable core; JBSS is just a profile + fixture. Point it at another
-company or another tender by swapping JSON — nothing in the engine is hardcoded
-to one bidder. Full walkthrough → **[docs/architecture.md](docs/architecture.md)**.
+company or another tender by swapping JSON. Nothing in the engine is hardcoded
+to one bidder. Full walkthrough in **[docs/architecture.md](docs/architecture.md)**.
 
 ---
 
@@ -95,9 +95,9 @@ Run end-to-end against the **Sangareddy 50 TPD C&D tender** (Tender ID 704474),
 a live ₹3 Cr municipal contract bid as a JBSS LLP + Lochab Stone joint venture.
 The engine reproduced the qualification score (80/100, clearing the 70 gate) and
 caught the compliance defects above before the deadline.
-*(Bid submitted; award pending — this repo claims a validated **process**, not a win.)*
-Story → **[docs/case-study-sangareddy.md](docs/case-study-sangareddy.md)** ·
-Economics → **[docs/business-case.md](docs/business-case.md)**.
+*(Bid submitted, award pending. This repo claims a validated **process**, not a win.)*
+The story is in **[docs/case-study-sangareddy.md](docs/case-study-sangareddy.md)**
+and the economics in **[docs/business-case.md](docs/business-case.md)**.
 
 ---
 
