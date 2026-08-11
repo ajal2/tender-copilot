@@ -29,7 +29,8 @@ Structuring the RFP into the schema and running evaluate + audit returned:
 - **Score 80/100**, clearing the 70 gate: turnover 25 (combined ~₹11.3 Cr, in
   the 10 to 15 Cr band) + capacity 30 (cumulative 100 TPD) + tie-up 5 +
   methodology 20.
-- **A reject-risk report** that caught, before the deadline:
+- **A reject-risk report** that reproduces the four defects human review caught
+  on the live bid:
   - the compliance letter claimed the PF challan was enclosed and pointed to
     Slot 2, where it wasn't;
   - the EPF paid-challan requirement, which appears on no checklist, only in
@@ -43,10 +44,12 @@ See the verbatim output in [../examples/sangareddy_risk_report.md](../examples/s
 
 ## Outcome
 
-The bid was assembled, audited, and **submitted online before the 2 PM
+The bid was assembled by hand and **submitted online before the 2 PM
 deadline**. Technical opening and L1 are pending, so no award is claimed here.
-The value demonstrated is catching defects that a manual pass missed and
-protecting a ₹3,00,000 EMD from a technical-rejection risk.
+The engine came afterward: it encodes this bid as its first labelled fixture,
+so the defects that a careful human pass caught here are now caught
+automatically, and a ₹3,00,000 EMD on the next bid doesn't depend on somebody
+being careful at 1 AM.
 
 ## Track record (separate from this system)
 

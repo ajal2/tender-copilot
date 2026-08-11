@@ -89,12 +89,14 @@ to one bidder. Full walkthrough in **[docs/architecture.md](docs/architecture.md
 
 ---
 
-## Validated on a real bid
+## Built from a real bid
 
-Run end-to-end against the **Sangareddy 50 TPD C&D tender** (Tender ID 704474),
-a live ₹3 Cr municipal contract bid as a JBSS LLP + Lochab Stone joint venture.
-The engine reproduced the qualification score (80/100, clearing the 70 gate) and
-caught the compliance defects above before the deadline.
+The test case is the **Sangareddy 50 TPD C&D tender** (Tender ID 704474), a
+live ₹3 Cr municipal contract bid as a JBSS LLP + Lochab Stone joint venture.
+The engine was built after that bid went in, encoding it as the first labelled
+fixture: it matches the 80/100 score we computed by hand (gate 70), and it
+reproduces, under test, the four compliance defects that human review caught
+on the real bid. Future bids get from the engine what this one got by hand.
 *(Bid submitted; the award is still pending.)*
 The story is in **[docs/case-study-sangareddy.md](docs/case-study-sangareddy.md)**
 and the economics in **[docs/business-case.md](docs/business-case.md)**.
