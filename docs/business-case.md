@@ -23,7 +23,7 @@ tender-copilot does not claim to make you win a tender. You win on price
    two-person team can pursue the tenders they're eligible for instead of
    cherry-picking three.
 2. **Rejection-avoidance.** The reject-risk audit catches the technical defects
-   that forfeit an EMD and a month of work: buried-prose requirements, missing
+   that waste the tender fee and a month of work: buried-prose requirements, missing
    proofs, and the bid contradicting itself.
 
 ## Illustrative unit economics
@@ -36,10 +36,11 @@ tender-copilot does not claim to make you win a tender. You win on price
 | Consultant / senior time per bid | ₹25k to ₹1L | mostly avoided |
 | Tenders pursued per quarter (2-person team) | ~3 | 3× more, same headcount |
 | Technical-rejection rate | a real, recurring loss | caught pre-submission |
-| EMD at risk per bid (Sangareddy) | ₹3,00,000 | protected by the audit |
+| Cost of a technical rejection | tender fee + the whole bid effort | caught pre-submission |
 
 The system pays for itself by **preventing a single avoidable rejection**: one
-forfeited ₹3,00,000 EMD, or one wasted ₹3 Cr-scale bid effort, dwarfs its cost.
+wasted ₹3 Cr-scale bid effort, with its fees and its lost week of senior time,
+dwarfs its cost.
 Everything above that, the extra tenders pursued, is upside.
 
 ## Market

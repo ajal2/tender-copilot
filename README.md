@@ -56,7 +56,8 @@ python -m tender_copilot          # prints the report above. no deps, no keys.
 - The most catchable defect isn't even a missing file. It's the bid *claiming*
   a file it didn't attach, so the engine checks every claim against what was
   actually assembled.
-- Wrong answers cost money here. A bad eligibility call forfeits the EMD, so
+- Wrong answers cost money here. A rejected bid wastes the non-refundable
+  tender fee and days of senior time, so
   the extractor carries per-field confidence and anything it's unsure of goes
   to a human queue instead of a guess.
 

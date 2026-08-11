@@ -48,8 +48,8 @@ The bid was assembled by hand and **submitted online before the 2 PM
 deadline**. Technical opening and L1 are pending, so no award is claimed here.
 The engine came afterward: it encodes this bid as its first labelled fixture,
 so the defects that a careful human pass caught here are now caught
-automatically, and a ₹3,00,000 EMD on the next bid doesn't depend on somebody
-being careful at 1 AM.
+automatically, and the next bid's fees and weeks of work don't depend on
+somebody being careful at 1 AM.
 
 ## Track record (separate from this system)
 
