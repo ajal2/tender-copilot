@@ -2,27 +2,18 @@
 
 The entire system is **five stages and two human gates**.
 
-```
-        RFP PDF
-          │  (1) EXTRACT          per-field confidence
-          ▼                       low-confidence → human review queue  ──► gate 2
-   ┌──────────────┐
-   │ Tender schema│   requirements (ranked by SOURCE) · scoring rubric · EMD/fee/gate
-   └──────┬───────┘
-          │                 ┌─ CompanyProfile (who you are: turnover, capacity, docs)
-          ▼                 │
-   (2) EVALUATE ◄───────────┘   → technical score + per-line gap reasons
-          │
-          ▼
-   (3) AUDIT ◄── Submission (what you actually assembled: slots + claims)
-          │        · required-doc coverage
-          │        · claim ↔ reality contradiction check
-          │        · score vs gate · EMD/fee · fail-loud on low confidence
-          ▼
-   (4) RISK REPORT  →  verdict: BID / CONDITIONAL / NO-BID      ──► gate 1
-          │
-          ▼
-   (5) ASSEMBLE  (downstream, commodity: build & brand the bundle)
+```mermaid
+flowchart TB
+    A["1. EXTRACT<br>read the RFP, tag every requirement with<br>where it appears and a confidence score"] --> G2{"low confidence?"}
+    G2 -- yes --> H2["human review queue<br>(gate 2)"]
+    H2 --> B
+    G2 -- no --> B["Context layer<br>Tender demands, CompanyProfile,<br>Submission slots and claims"]
+    B --> C["2. EVALUATE<br>technical score with<br>per-line gap reasons"]
+    B --> D["3. AUDIT<br>docs present, claims vs reality,<br>score vs gate, fees, fail-loud"]
+    C --> D
+    D --> E["4. RISK REPORT<br>BID / CONDITIONAL / NO-BID"]
+    E --> H1["human bid decision<br>(gate 1)"]
+    H1 --> F["5. ASSEMBLE<br>build and brand the bundle<br>(downstream, commodity)"]
 ```
 
 **Gate 1, bid or no-bid.** The engine eliminates the obvious: a failed

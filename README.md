@@ -63,26 +63,19 @@ python -m tender_copilot          # prints the report above. no deps, no keys.
 
 ---
 
-## Architecture (the whole thing is five boxes + two human gates)
+## How a bid flows through it
 
+```mermaid
+flowchart LR
+    A["RFP PDF<br>100 pages"] --> B["Read and structure<br>AI-assisted, human-reviewed"]
+    B --> C["Context layer<br>what it demands, who we are,<br>what we assembled"]
+    C --> D["Audit engine<br>five deterministic checks"]
+    D --> E["Risk report<br>BID / CONDITIONAL / NO-BID"]
+    E --> F["Human makes<br>the bid decision"]
 ```
-            RFP PDF
-              │   extract.py   ── per-field confidence; low-confidence ─┐
-              ▼                                                         │
-        ┌───────────────┐     profile (who you are)                    │
-        │ Tender schema │◄──────────────┐                              │
-        └──────┬────────┘               │                              ▼
-               │                  ┌──────────────┐              [ human gate 2 ]
-               ▼                  │ evaluate.py  │  score + per-line gaps
-        ┌───────────────┐        └──────┬───────┘
-        │  audit.py     │◄── what you actually assembled (slots + claims)
-        │  (the star)   │
-        └──────┬────────┘
-               ▼
-     Reject-risk report  →  BID  /  CONDITIONAL  /  NO-BID
-               ▲
-        [ human gate 1 ]  bid / no-bid decision stays with the team
-```
+
+AI reads, humans verify, rules judge, a person decides. Anything the reading
+stage is unsure about skips straight to a human instead of being trusted.
 
 One configurable core; JBSS is just a profile + fixture. Point it at another
 company or another tender by swapping JSON. Nothing in the engine is hardcoded
