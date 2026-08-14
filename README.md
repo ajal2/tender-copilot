@@ -93,7 +93,8 @@ The engine was built after that bid went in, encoding it as the first labelled
 fixture: it matches the 80/100 score we computed by hand (gate 70), and it
 reproduces, under test, the four compliance defects that human review caught
 on the real bid. Future bids get from the engine what this one got by hand.
-*(Bid submitted; the award is still pending.)*
+*(The bid won. The engine takes no credit for that: it did not exist when the
+bid went in.)*
 The story is in **[docs/case-study-sangareddy.md](docs/case-study-sangareddy.md)**
 and the economics in **[docs/business-case.md](docs/business-case.md)**.
 

@@ -44,12 +44,11 @@ See the verbatim output in [../examples/sangareddy_risk_report.md](../examples/s
 
 ## Outcome
 
-The bid was assembled by hand and **submitted online before the 2 PM
-deadline**. Technical opening and L1 are pending, so no award is claimed here.
-The engine came afterward: it encodes this bid as its first labelled fixture,
-so the defects that a careful human pass caught here are now caught
-automatically, and the next bid's fees and weeks of work don't depend on
-somebody being careful at 1 AM.
+The bid was assembled by hand, **submitted online before the 2 PM deadline**,
+and **won**. The engine takes no credit for that: it came afterward, encoding
+this bid as its first labelled fixture, so the defects that a careful human pass
+caught here are now caught automatically, and the next bid's fees and weeks of
+work don't depend on somebody being careful at 1 AM.
 
 ## Track record (separate from this system)
 
