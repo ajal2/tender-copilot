@@ -11,15 +11,15 @@ flowchart TB
     B --> C["2. EVALUATE<br>technical score with<br>per-line gap reasons"]
     B --> D["3. AUDIT<br>docs present, claims vs reality,<br>score vs gate, fees, fail-loud"]
     C --> D
-    D --> E["4. RISK REPORT<br>BID / CONDITIONAL / NO-BID"]
+    D --> E["4. AUDIT VERDICT<br>SAFE TO SUBMIT / DO NOT SUBMIT"]
     E --> H1["human bid decision<br>(gate 1)"]
     H1 --> F["5. ASSEMBLE<br>build and brand the bundle<br>(downstream, commodity)"]
 ```
 
-**Gate 1, bid or no-bid.** The engine eliminates the obvious: a failed
-eligibility gate means NO-BID, a clean pass means BID. The genuinely judgemental
-middle (CONDITIONAL: eligible and over the gate, but with curable risks) is
-handed to the team. We do not automate the decision to risk an EMD.
+**Gate 1, the human's call.** The audit answers one question — *is this safe to
+submit?* Any HIGH or MEDIUM flag means `DO NOT SUBMIT`; a clean pass means
+`SUBMIT`. Whether to actually pursue the tender stays with the team. We do not
+automate the decision to risk the non-refundable fee.
 
 **Gate 2, extraction review.** Any field parsed below the confidence floor is
 surfaced, never trusted. The fixtures in `fixtures/` are the *reviewed* output of
@@ -38,12 +38,12 @@ reads like judgement, not a `grep` for annexure numbers.
 
 - **`Tender`**: `requirements`, `scoring`, `minimums` (hard gates), `emd`,
   `doc_fee`, `gate`. The structured form of a messy PDF.
-- **`Requirement`** carries `id`, `description`, `kind`, **`source`**, `doc_id`,
-  and `confidence`. `doc_id` links a demand to the artifact that satisfies it.
+- **`Requirement`** carries `id`, `description`, **`source`**, `doc_id`, and
+  `confidence`. `doc_id` links a demand to the artifact that satisfies it.
 - **`ScoringItem`** is either value-driven (`bands` mapping values to marks) or
   presence-driven (`fixed`), so the score stays explainable line by line.
-- **`CompanyProfile`**: `metrics` (turnover, capacity and so on),
-  `registrations`, and `documents_available`, meaning what you *hold*.
+- **`CompanyProfile`**: `metrics` (turnover, capacity and so on) and
+  `documents_available`, meaning what you *hold*.
 - **`Submission`**: `slots` (what you *assembled*), `claims`, `emd_paid`,
   `fee_paid`. The gap between `documents_available` and what's in `slots` is
   exactly how "you own the PF challan but didn't attach it" gets caught.
@@ -51,8 +51,8 @@ reads like judgement, not a `grep` for annexure numbers.
 
 ## Audit logic (`audit.py`), in the order it runs
 
-1. **Hard eligibility gates** come first. Fail one and the verdict is `NO-BID`
-   (turnover, capacity, and the rest).
+1. **Hard eligibility gates** come first. Fail one and it's `DO NOT SUBMIT`
+   (turnover, capacity, and the rest) — you can't win as-is.
 2. **Required-doc coverage**: a missing document is HIGH if it was on the
    checklist, MEDIUM if it only appeared in prose.
 3. **Contradictions.** A claim that asserts a document that isn't enclosed is HIGH.
@@ -60,8 +60,8 @@ reads like judgement, not a `grep` for annexure numbers.
 5. **EMD and fees**: a shortfall or an unreconciled amount is HIGH or MEDIUM.
 6. **Fail-loud**: any low-confidence requirement becomes a LOW review item.
 
-Verdict: `NO-BID` if a gate fails or score < gate; else `CONDITIONAL` if any
-HIGH/MEDIUM remains; else `BID`.
+Verdict: `DO NOT SUBMIT` if any HIGH/MEDIUM flag remains — an ineligibility or a
+below-gate score each raise one — else `SUBMIT`.
 
 ## Why it generalises
 

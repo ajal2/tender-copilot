@@ -1,14 +1,14 @@
-# Hero output — reject-risk report on a real bid
+# Hero output — pre-submission audit on a real bid
 
 This is the **verbatim output** of `python -m tender_copilot` against the bundled
 Sangareddy fixture (a live ₹3 Cr government tender). No install, no API key.
 
 ```text
-BID REJECT-RISK REPORT  ·  704474-E1-168-MCS-2026-27
+PRE-SUBMISSION AUDIT  ·  704474-E1-168-MCS-2026-27
 50 TPD C&D Waste Processing Plant + 10-yr O&M — Sangareddy Cluster (11 ULBs)
 Authority: Sangareddy Municipality (MCS), Telangana   Est. value: ₹30,000,000
 ==============================================================================
-VERDICT:  CONDITIONAL BID — eligible & over the gate, but fix the risks below first
+SAFE TO SUBMIT?   NO — fix the flags below before this goes out
 SCORE:    80/100  (gate 70; margin +10)
 RISKS:    1 HIGH, 2 MEDIUM, 1 LOW
 ==============================================================================

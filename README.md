@@ -5,24 +5,24 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![CI](https://github.com/ajal2/tender-copilot/actions/workflows/ci.yml/badge.svg)](https://github.com/ajal2/tender-copilot/actions/workflows/ci.yml)
 
-> Indian government RFPs are 100-page documents where a single buried clause
-> disqualifies you. **tender-copilot reads one and returns: bid or skip, your
+> Indian government bids run to a hundred pages, and a single buried clause gets
+> you rejected. **tender-copilot audits a bid before it goes out and answers one
+> question: is this safe to submit?** It returns SUBMIT / DO NOT SUBMIT, your
 > score against the qualification gate, and the exact clauses you're about to be
-> rejected on.** Validated on a live ₹3 Cr bid.
+> rejected on. Validated on a live ₹3 Cr bid.
 
-Plenty of tender tools generate documents. Here the PDFs are the boring
-byproduct; the product is the decision, plus the risk model that catches what a
-tired human misses.
+Plenty of tools *write* tender documents. This one is the deterministic safety
+check at the end — the reject-risk audit that catches what a tired human misses.
 
 ---
 
 ## The hero output (real bid, zero install)
 
 ```text
-BID REJECT-RISK REPORT  ·  704474-E1-168-MCS-2026-27
+PRE-SUBMISSION AUDIT  ·  704474-E1-168-MCS-2026-27
 50 TPD C&D Waste Processing Plant + 10-yr O&M — Sangareddy Cluster (11 ULBs)
 ==============================================================================
-VERDICT:  CONDITIONAL BID — eligible & over the gate, but fix the risks below first
+SAFE TO SUBMIT?   NO — fix the flags below before this goes out
 SCORE:    80/100  (gate 70; margin +10)
 RISKS:    1 HIGH, 2 MEDIUM, 1 LOW
 ==============================================================================
@@ -67,17 +67,19 @@ python -m tender_copilot          # prints the report above. no deps, no keys.
 
 ```mermaid
 flowchart TB
-    A[RFP PDF] --> B[AI reads]
+    A[RFP] --> B[AI reads into a requirements list]
     B --> C[Human verifies]
-    C --> D[Rules judge]
-    D --> E[Risk report]
-    E --> F[Human decides]
+    C --> D[Assemble the bundle]
+    D --> E[Audit ①: what's still missing?]
+    E --> F[Compile]
+    F --> G[Audit ②: safe to submit?]
 ```
 
-Five steps: the AI reads the 100-page RFP into structured facts, a human
-verifies them, deterministic rules audit the bid against those facts, and a
-person makes the final call. Anything read with low confidence skips straight
-to the human instead of being trusted.
+The same deterministic audit runs at two moments: **early**, on a half-built
+bundle, to show what's still missing while there's time to fix it; and **final**,
+as the safety gate before anything goes out. The AI only sits at the front —
+reading the RFP into structured facts a human verifies; anything low-confidence
+goes to the human. No model touches the verdict.
 
 One configurable core; JBSS is just a profile + fixture. Point it at another
 company or another tender by swapping JSON. Nothing in the engine is hardcoded
@@ -106,7 +108,7 @@ and the economics in **[docs/business-case.md](docs/business-case.md)**.
 tender_copilot/      the engine
   schema.py            data model (the core idea: requirements ranked by where they appear)
   evaluate.py          rubric → score + gap reasons
-  audit.py        ★    reject-risk + cross-doc contradiction + fail-loud
+  audit.py        ★    the six checks → SAFE TO SUBMIT / DO NOT SUBMIT
   extract.py           JSON loaders; PDF→schema is the documented research stage
   report.py            renders the hero output
 fixtures/            Sangareddy tender + submission (reviewed extraction output)

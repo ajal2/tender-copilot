@@ -15,7 +15,6 @@ from pathlib import Path
 from .schema import (
     Claim,
     CompanyProfile,
-    Kind,
     Requirement,
     ScoringItem,
     Source,
@@ -28,7 +27,7 @@ def load_tender(path: str | Path) -> Tender:
     d = json.loads(Path(path).read_text())
     reqs = tuple(
         Requirement(
-            id=r["id"], description=r["description"], kind=Kind(r["kind"]),
+            id=r["id"], description=r["description"],
             source=Source(r["source"]), mandatory=r.get("mandatory", True),
             doc_id=r.get("doc_id"), confidence=r.get("confidence", 1.0),
         )
@@ -55,9 +54,8 @@ def load_tender(path: str | Path) -> Tender:
 def load_profile(path: str | Path) -> CompanyProfile:
     d = json.loads(Path(path).read_text())
     return CompanyProfile(
-        name=d["name"], is_jv=d.get("is_jv", False),
+        name=d["name"],
         metrics=d.get("metrics", {}),
-        registrations=set(d.get("registrations", [])),
         documents_available=set(d.get("documents_available", [])),
     )
 

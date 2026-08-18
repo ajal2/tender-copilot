@@ -37,7 +37,8 @@ class SangareddyAudit(unittest.TestCase):
     def test_eligible_and_over_the_gate(self):
         self.assertEqual(self.report.score, 80)
         self.assertGreaterEqual(self.report.score, self.report.gate)
-        self.assertEqual(self.report.verdict, "CONDITIONAL")
+        # eligible & over the gate, but open flags → not safe to submit as-is
+        self.assertEqual(self.report.verdict, "DO NOT SUBMIT")
 
     def test_catches_self_contradiction(self):
         # the headline finding: bid claims a doc it didn't enclose
@@ -54,8 +55,8 @@ class SangareddyAudit(unittest.TestCase):
         self.assertIn("REVIEW", self.codes(Severity.LOW))
 
     def test_no_false_eligibility_block(self):
-        # turnover & capacity gates pass, so no NO-BID
-        self.assertNotEqual(self.report.verdict, "NO-BID")
+        # turnover & capacity gates pass, so no eligibility flag is raised
+        self.assertNotIn("ELIG", self.codes())
 
 
 if __name__ == "__main__":

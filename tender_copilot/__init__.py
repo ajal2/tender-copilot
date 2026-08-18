@@ -1,6 +1,6 @@
-"""tender-copilot: read an adversarial government RFP, return a go/no-go,
-a score against the qualification gate, and the exact clauses you're about to
-be rejected on.
+"""tender-copilot: audit a government bid before it goes out — is it safe to
+submit? Returns a SUBMIT / DO NOT SUBMIT verdict, the score against the
+qualification gate, and the exact clauses you're about to be rejected on.
 
 Public API:
     from tender_copilot import run

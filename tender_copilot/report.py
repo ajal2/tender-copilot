@@ -6,21 +6,20 @@ from . import evaluate
 from .schema import CompanyProfile, RiskReport, Severity, Tender
 
 _ICON = {Severity.HIGH: "●", Severity.MEDIUM: "◐", Severity.LOW: "○", Severity.INFO: "·"}
-_VERDICT = {
-    "BID": "BID — eligible, over the gate, no blocking risks",
-    "CONDITIONAL": "CONDITIONAL BID — eligible & over the gate, but fix the risks below first",
-    "NO-BID": "NO-BID — a hard gate fails; this bid cannot win as-is",
+_ANSWER = {
+    "SUBMIT": "YES — no blocking flags",
+    "DO NOT SUBMIT": "NO — fix the flags below before this goes out",
 }
 
 
 def render(report: RiskReport, profile: CompanyProfile) -> str:
     t = report.tender
     L: list[str] = []
-    L.append(f"BID REJECT-RISK REPORT  ·  {t.id}")
+    L.append(f"PRE-SUBMISSION AUDIT  ·  {t.id}")
     L.append(f"{t.title}")
     L.append(f"Authority: {t.authority}   Est. value: ₹{t.estimated_cost:,}")
     L.append("=" * 78)
-    L.append(f"VERDICT:  {_VERDICT[report.verdict]}")
+    L.append(f"SAFE TO SUBMIT?   {_ANSWER[report.verdict]}")
     L.append(
         f"SCORE:    {report.score}/{sum(s.max_marks for s in t.scoring)}  "
         f"(gate {report.gate}; margin {report.margin:+d})"

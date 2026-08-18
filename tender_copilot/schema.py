@@ -29,19 +29,11 @@ class Source(str, Enum):
     PROSE = "prose"          # buried in an eligibility paragraph, on no checklist
 
 
-class Kind(str, Enum):
-    DOCUMENT = "document"
-    ELIGIBILITY = "eligibility"
-    EMD = "emd"
-    FEE = "fee"
-
-
 @dataclass(frozen=True)
 class Requirement:
     """A single thing the RFP demands. `doc_id` links it to a deliverable."""
     id: str
     description: str
-    kind: Kind
     source: Source
     mandatory: bool = True
     doc_id: Optional[str] = None     # the artifact that satisfies it
@@ -75,7 +67,7 @@ class Tender:
     requirements: tuple[Requirement, ...]
     scoring: tuple[ScoringItem, ...]
     notes: tuple[str, ...] = ()
-    # hard eligibility gates: (metric, minimum, human label). Fail one => NO-BID.
+    # hard eligibility gates: (metric, minimum, human label). Fail one => DO NOT SUBMIT.
     minimums: tuple[tuple[str, float, str], ...] = ()
 
     def required(self) -> tuple[Requirement, ...]:
@@ -86,10 +78,8 @@ class Tender:
 class CompanyProfile:
     """What the bidder (or JV) actually is and holds."""
     name: str
-    is_jv: bool = False
     # metric -> value (e.g. avg_turnover_cr, cumulative_capacity_tpd)
     metrics: dict[str, float] = field(default_factory=dict)
-    registrations: set[str] = field(default_factory=set)
     documents_available: set[str] = field(default_factory=set)
 
 
@@ -129,7 +119,7 @@ class Finding:
 @dataclass
 class RiskReport:
     tender: Tender
-    verdict: str            # BID / CONDITIONAL / NO-BID
+    verdict: str            # SUBMIT / DO NOT SUBMIT
     score: int
     gate: int
     findings: list[Finding]

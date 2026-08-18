@@ -1,7 +1,7 @@
 """Reject-risk audit: the centerpiece.
 
 Given an extracted tender, the bidder profile, and what was actually assembled,
-return a ranked list of the ways this bid gets rejected, plus a go/no-go verdict.
+return a ranked list of the ways this bid gets rejected, plus a safe-to-submit verdict.
 
 The findings that matter most, in order of how often they sink real bids:
   1. A requirement satisfied nowhere in the assembled bundle.
@@ -17,7 +17,6 @@ from . import evaluate
 from .schema import (
     CompanyProfile,
     Finding,
-    Kind,
     RiskReport,
     Severity,
     Source,
@@ -33,10 +32,8 @@ def audit(tender: Tender, profile: CompanyProfile, sub: Submission) -> RiskRepor
     present = sub.documents_present()
 
     # 1. Hard eligibility gates -------------------------------------------------
-    blocked = False
     for label, ok, detail in evaluate.eligibility(tender, profile):
         if not ok:
-            blocked = True
             findings.append(Finding(
                 Severity.HIGH, "ELIG", f"Ineligible: {label}",
                 f"{detail}. This is a pass/fail gate — the bid cannot win.",
@@ -110,16 +107,18 @@ def audit(tender: Tender, profile: CompanyProfile, sub: Submission) -> RiskRepor
             ))
 
     findings.sort(key=lambda f: list(Severity).index(f.severity))
-    verdict = _verdict(blocked, total, tender.gate, findings)
+    verdict = _verdict(findings)
     return RiskReport(tender, verdict, total, tender.gate, findings)
 
 
-def _verdict(blocked: bool, score: int, gate: int, findings: list[Finding]) -> str:
-    if blocked or score < gate:
-        return "NO-BID"
-    if any(f.severity in (Severity.HIGH, Severity.MEDIUM) for f in findings):
-        return "CONDITIONAL"   # eligible & over the gate, but fix the risks first
-    return "BID"
+def _verdict(findings: list[Finding]) -> str:
+    """One question: is this bid safe to submit? Any HIGH or MEDIUM flag means no.
+
+    A HIGH/MEDIUM covers every blocking case — an ineligibility or a below-gate
+    score each raise a HIGH finding above, so counting the flags is enough.
+    """
+    unsafe = any(f.severity in (Severity.HIGH, Severity.MEDIUM) for f in findings)
+    return "DO NOT SUBMIT" if unsafe else "SUBMIT"
 
 
 def _inr(n: int) -> str:
